@@ -12,4 +12,6 @@ public class ConfigColas {
     public static final String ROUTING_C = "policiaJZ";
 
     private static final String EXCHANGE_NAME = "exchange-topic";
+
+    /*Creacion de las colas*/
 }
