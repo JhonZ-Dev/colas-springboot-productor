@@ -2,6 +2,7 @@ package com.example.colasspringboot.controller;
 
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,4 +18,6 @@ public class NumeroController {
     private DirectExchange exchange;
     @Autowired
     private FanoutExchange fanoutExchange;
+    @Autowired
+    private TopicExchange topicExchange;
 }
