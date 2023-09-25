@@ -1,6 +1,7 @@
 package com.example.colasspringboot.config;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -82,5 +83,9 @@ public class ConfigColas {
     @Bean
     public Binding bindingAmbulanciasIncendio(Queue colaAmbulanciaJZ, TopicExchange topicExchange) {
         return BindingBuilder.bind(colaAmbulanciaJZ).to(topicExchange).with("ambulancias.*");
+    }
+    @Bean
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 }
