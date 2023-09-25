@@ -1,6 +1,9 @@
 package com.example.colasspringboot.config;
 
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,5 +30,22 @@ public class ConfigColas {
     @Bean
     public Queue colaPoliciaJZ() {
         return new Queue(colas_policiaJZ, false);
+    }
+
+    /*CRQACION TOPIX*/
+    @Bean
+    public FanoutExchange fanoutExchange() {
+        return new FanoutExchange("exchange-fanout");
+    }
+
+
+    @Bean
+    public DirectExchange exchange() {
+        return new DirectExchange("exchange-numeros");
+    }
+
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange(EXCHANGE_NAME);
     }
 }
